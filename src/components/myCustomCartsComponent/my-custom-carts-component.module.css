@@ -1,0 +1,37 @@
+.cartItem {
+    width: 300px;
+    min-height: 323px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.cartPrice {
+    color: red;
+    font-size: 22px;
+    text-align: center;
+    padding: 10px 5px;
+}
+
+.cartTitle {
+    color: black;
+    font-size: 28px;
+    text-align: center;
+    padding: 10px 5px;
+}
+.cartBtn{
+    width: 100%;
+    color: white;
+    background: black;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 30px;
+}
+.cartItemImg{
+    width: 300px;
+}
