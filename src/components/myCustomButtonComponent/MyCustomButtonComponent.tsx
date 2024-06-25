@@ -16,7 +16,7 @@ const MyButtonComponent: FC<IProps> = ({nameClassCss, children}) => {
     return (
         <button
             className={[styles.btnBg, styles.btnColor, styles.btnFontSize].join(' ')}
-            onClick={()=>{
+            onClick={():void=>{
             someHandler();
         }}
         >
