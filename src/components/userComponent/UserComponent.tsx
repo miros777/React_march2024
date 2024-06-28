@@ -3,15 +3,18 @@ import {IUser} from "../../models/IUser";
 
 type IProps = {
     user: IUser,
-    info: string
+    info: string,
+    getPosts: () => void
 }
-const UserComponent: FC<IProps> = ({user, info}) => {
+
+
+const UserComponent: FC<IProps> = ({user, info, getPosts}) => {
     const {id, firstName} = user;
 
     return (
         <div>FIRSTNAME: {user.firstName}
            ID: {user.id}
-            <button onClick={getPosts()}></button>
+            <button onClick={() => getPosts()}>Sow posts</button>
         </div>
     );
 };

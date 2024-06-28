@@ -13,10 +13,15 @@ const UsersComponent:FC = () => {
             });
     }, []);
 
+    const getPosts = () => {
+        console.log('iiiiiiiiiiii');
+
+    }
+
     return (
         <div>
             {
-                usersAll.map(user => <UserComponent key={user.id} info={user.firstName} user={user}/>)
+                usersAll.map(user => <UserComponent key={user.id} info={user.firstName} user={user} getPosts={getPosts}/>)
             }
         </div>
     )
