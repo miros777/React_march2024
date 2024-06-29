@@ -25,7 +25,6 @@ const UsersComponent: FC = () => {
                     usersAll.map(user => <UserComponent key={user.id} user={user} getPosts={getPosts}/>)
                 }
             </div>
-
             <div>
                 <PostComponent posts={posts}/>
             </div>
