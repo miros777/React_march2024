@@ -1,20 +1,21 @@
 import React, {FC} from 'react';
 import {IUser} from "../../models/IUser";
+import styles from './user-component.module.css';
 
-type IProps = {
+interface IProps {
     user: IUser,
-    info: string,
-    getPosts: () => void
+    getPosts: (id:number) => void
 }
 
-
-const UserComponent: FC<IProps> = ({user, info, getPosts}) => {
-    const {id, firstName} = user;
+const UserComponent: FC<IProps> = ({user, getPosts}) => {
+    const {id, firstName, phone} = user;
 
     return (
-        <div>FIRSTNAME: {user.firstName}
-           ID: {user.id}
-            <button onClick={() => getPosts()}>Sow posts</button>
+        <div className={styles.userWrap}>
+            <div className={styles.userIdWrap}>ID: {id}</div>
+            <div className={styles.userNameWrap}>FIRSTNAME: {firstName}</div>
+            <div>PHONE: {phone}</div>
+            <button onClick={() => getPosts(id)}>Sow posts</button>
         </div>
     );
 };

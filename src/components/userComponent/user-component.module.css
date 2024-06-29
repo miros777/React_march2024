@@ -1,0 +1,13 @@
+.userWrap{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70vw;
+    margin-bottom: 7px;
+}
+.userIdWrap{
+    width: 10vw;
+}
+.userNameWrap{
+    width: 20vw;
+}
