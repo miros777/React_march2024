@@ -10,12 +10,14 @@ const UsersComponent: FC = () => {
     const [usersAll, setUsers] = useState<IUser[]>([]);
 
     useEffect(() => {
-        getUsers().then(value => setUsers(value.users) );
+        // @ts-ignore
+        getUsers().then(value => setUsers([...value]) );
     }, []);
 
     const [posts, setPosts] = useState<IPost[]>([]);
     const getPosts = (id: number) => {
-        getPostsFormUser(id).then(posts => setPosts(posts['posts']) );
+        // @ts-ignore
+        getPostsFormUser(id).then(posts => setPosts([...posts]) );
     }
 
     return (
