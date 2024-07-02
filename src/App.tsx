@@ -1,12 +1,13 @@
-import React, {FC} from 'react';
+import React from 'react';
 import './App.css';
+import {useToggle} from "./hooks/useToggle";
+const App = () => {
 
-const App:FC = () => {
-  return (
-      <>
-
-      </>
-  )
+    return (
+        <>
+            {useToggle()}
+        </>
+    )
 }
 
 export default App;
