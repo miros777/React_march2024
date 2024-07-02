@@ -10,7 +10,6 @@ export const useToggle = () => {
         }
         return prevState;
     });
-
     return (
         <>
             <label htmlFor="toggleMy">Agree or disagree. Toggle={toggle.toString()}</label><br/>
