@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
-export const useToggle = () => {
-    const [toggle, setToggle] = useState<boolean>(false);
+export const useToggle = (init:boolean) => {
+    const [toggle, setToggle] = useState<boolean>(init);
     const change = () => setToggle((prevState):boolean => {
         if (prevState === true) {
             prevState = false;
@@ -10,11 +10,6 @@ export const useToggle = () => {
         }
         return prevState;
     });
-    return (
-        <>
-            <h2>Use Toggle</h2>
-            <label htmlFor="toggleMy">Agree or disagree. Toggle={toggle.toString()}</label><br/>
-            <input type={"checkbox"} id='toggleMy' onClick={() => change()}/>
-        </>
-    )
+
+    return {toggle, change};
 }
