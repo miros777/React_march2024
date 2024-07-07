@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
+import PostsComponent from "./components/postsComponent/PostsComponent";
 
 const App = () => {
-  return (
+    // let items;
+    return (
       <>
-          {console.log('test')}
+          <PostsComponent />
       </>
   )
 }
