@@ -1,14 +1,15 @@
-import React, {FC} from 'react';
-import './App.css';
-import MyButtonComponent from "./components/myCustomButtonComponent/MyCustomButtonComponent";
+import React from 'react';
+import {useForm} from "react-hook-form";
+import FormComponent from "./components/formComponent/FormComponent";
 
 const App = () => {
-  return (
-      <>
-      <MyButtonComponent nameClassCss={'btn'}>Button 1</MyButtonComponent>
-      <MyButtonComponent nameClassCss={'btn'}>Button 2</MyButtonComponent>
-      </>
-  )
+
+
+    return (
+        <>
+            <FormComponent/>
+        </>
+    )
 }
 
 export default App;
