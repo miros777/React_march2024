@@ -2,12 +2,9 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 import userFormValidator from "../../validators/user-form-validator"
+import {sendPost} from "../../services/postsFormSender";
+import {IForm} from "../../models/IForm";
 
-type IForm = {
-    title: string,
-    body: string,
-    userId: number
-}
 const FormComponent = () => {
 
     let {formState: {errors, isValid}, register, handleSubmit} = useForm<IForm>(
@@ -16,19 +13,9 @@ const FormComponent = () => {
             resolver: joiResolver(userFormValidator)
         }
     );
-    let customHamdleSubmit = (data:IForm) => {
-        console.log(data);
 
-        fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            body: JSON.stringify(data  // API example   {title: 'foo', body: 'bar', userId: 1}
-            ),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
+    let customHamdleSubmit = (data:IForm) => {
+        sendPost(JSON.stringify(data));
     }
 
     return (

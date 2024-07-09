@@ -12,9 +12,10 @@ const userFormValidator = Joi.object({
         .messages({"string.min": "min 3 letters"}),
     userId: Joi.number()
         .min(1)
-        .max(150)
+        .max(30)
         .required()
-        .messages({"number.min": "min age 1 year"}),
+        .messages({"number.min": "min ID 1 "})
+        .messages({"number.max": "max ID 30 "}),
 })
 
 export default userFormValidator;
