@@ -15,7 +15,7 @@ const FormComponent = () => {
     );
 
     let customHamdleSubmit = (data:IForm) => {
-        sendPost(JSON.stringify(data));
+        sendPost(data);
     }
 
     return (

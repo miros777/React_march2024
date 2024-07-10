@@ -1,4 +1,6 @@
 import axios, {AxiosInstance, AxiosResponse} from "axios";
+import {IForm} from "../models/IForm";
+import {IPostRes} from "../models/IPostRes";
 
 let axiosInstance:AxiosInstance = axios.create({
     baseURL: 'https://jsonplaceholder.typicode.com',
@@ -9,8 +11,8 @@ axiosInstance.interceptors.request.use(request   => {
     return request
 });
 
-const sendPost = async (data:string) => {
-    await axiosInstance.post('/posts', data).then((responce:AxiosResponse<any, any>) => console.log(responce.data));
+const sendPost = async (data:IForm) => {
+    await axiosInstance.post('/posts', data).then((responce:AxiosResponse<IPostRes>) => console.log(responce.data));
 }
 
 // const getUserId = async (id:number) => {
