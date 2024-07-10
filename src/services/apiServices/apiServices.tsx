@@ -12,7 +12,7 @@ const getUsers = async () => {
     return await axiosInstance.get('/users').then((response:AxiosResponse<any>) => response.data);
 }
 const getUserPostsById = async (id:number) => {
-    return await axiosInstance.get('/users' + '/' + id + '/posts').then(response => response.data);
+    return await axiosInstance.get('/users' + '/' + id + '/posts').then((response:AxiosResponse<any>) => response.data);
 }
 export {
     getUsers,
