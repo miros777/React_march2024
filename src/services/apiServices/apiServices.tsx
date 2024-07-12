@@ -10,19 +10,19 @@ axiosInstance.interceptors.request.use(request  => {
     request.headers.set('Content-Type', 'application/json', );
     return request;
 });
-type IUsers = {
+type TypeUsers = {
     users: IUser[]
 }
-
-type IPosts = {
-    posts: IPost[]
-}
-const getUsers = async ():Promise<IUsers> => {
-    const axiosResponse = await axiosInstance.get<IUsers>('/users');
+const getUsers = async ():Promise<TypeUsers> => {
+    const axiosResponse = await axiosInstance.get<TypeUsers>('/users');
     return axiosResponse.data;
 }
-const getUserPostsById = async (id:number):Promise<IPosts> => {
-    const axiosResponse = await axiosInstance.get<IPosts>('/users' + '/' + id + '/posts');
+
+type TypePosts = {
+    posts: IPost[]
+}
+const getUserPostsById = async (id:number):Promise<TypePosts> => {
+    const axiosResponse = await axiosInstance.get<TypePosts>('/users' + '/' + id + '/posts');
     return axiosResponse.data;
 }
 export {
