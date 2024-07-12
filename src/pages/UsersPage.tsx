@@ -7,7 +7,6 @@ const UsersPage = () => {
     const [users,setUsers] = useState<IUser[]>([])
     useEffect(() => {
         getUsers().then(value => setUsers(value));
-        console.log(users)
     }, []);
 
     return (

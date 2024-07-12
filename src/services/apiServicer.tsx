@@ -11,16 +11,16 @@ axiosInstance.interceptors.request.use( request => {
     request.headers.set('Content-type: application/json; charset=UTF-8');
     return request
 })
-const getPosts = async () => {
-   return await axiosInstance.get('/posts').then((response:AxiosResponse<IPost[]>) => response.data);
+const getPosts = async ():Promise<IPost[]> => {
+   return await axiosInstance.get<IPost[]>('/posts').then((response:AxiosResponse<IPost[]>) => response.data);
 }
 
-const getUsers = async () => {
-   return await axiosInstance.get('/users/').then((response:AxiosResponse<IUser[]>) => response.data);
+const getUsers = async ():Promise<IUser[]> => {
+   return await axiosInstance.get<IUser[]>('/users/').then((response:AxiosResponse<IUser[]>) => response.data);
 }
 
-const getComments = async () => {
-    return await axiosInstance.get('/comments').then((response:AxiosResponse<IComment[]>) => response.data);
+const getComments = async ():Promise<IComment[]> => {
+    return await axiosInstance.get<IComment[]>('/comments').then((response:AxiosResponse<IComment[]>) => response.data);
 }
 
 export {
