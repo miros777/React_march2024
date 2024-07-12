@@ -14,10 +14,12 @@ class UsersComponent extends Component<{}, MyType> {
 
     state: MyType = {
         users: [],
-        posts: [],
+        posts: []
     }
     componentDidMount() {// as useEffect
-        getUsers().then(value => this.setState({...this.state, users: value.users}));
+        getUsers().then(value => {
+                this.setState({...this.state, users: value.users})
+            });
     }
 
     componentDidUpdate(prevProps: Readonly<any>, prevState: Readonly<any>, snapshot?: any) { //useEffect UseState
