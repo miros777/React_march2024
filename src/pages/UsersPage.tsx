@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {getUsers} from "../services/apiServicer";
+import {getAllUsers} from "../services/apiServicer";
 import {IUser} from "../models/IUser";
 import UsersComponent from "../components/UsersComponent";
 const UsersPage = () => {
 
     const [users,setUsers] = useState<IUser[]>([])
     useEffect(() => {
-        getUsers().then(value => setUsers(value));
+        getAllUsers().then(value => setUsers(value));
     }, []);
 
     return (
         <div>
-            Users
+            <h1>Users All</h1>
             <UsersComponent users={users}/>
         </div>
     );

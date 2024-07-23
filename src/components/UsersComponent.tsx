@@ -1,9 +1,7 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC} from 'react';
 import {IUser} from "../models/IUser";
 import UserComponent from "./UserComponent";
-import {Location, useLocation, useSearchParams} from "react-router-dom";
-import {IPost} from "../models/IPost";
-import {getUserById} from "../services/apiServicer";
+import { useSearchParams} from "react-router-dom";
 
 interface IProps {
     users: IUser[]
@@ -11,16 +9,6 @@ interface IProps {
 
 const UsersComponent: FC<IProps> = ({users}) => {
 
-    // const location:Location<IPost>  = useLocation();
-    // let state = location.state;
-    //
-    // console.log(location);
-    // console.log(state);
-    //
-    // const [userData, setPost] = useState<IUser>();
-    // useEffect(() => {
-    //     getUserById(id).then(value => setPost(value))
-    // }, [id]);
     let [searchParams, setSearchParams] = useSearchParams({'page': '0'});
 
     return (

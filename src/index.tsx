@@ -4,12 +4,11 @@ import UsersPage from "./pages/UsersPage";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
-import PostsPage from "./pages/PostsPage";
 import CommentsPage from "./pages/CommentsPage";
-import PostPage from "./pages/PostPage";
 import UserPage from "./pages/UserPage";
-import CommentPage from "./pages/CommentPage";
 import CustomErrorLayout from "./layouts/CustomErrorLayout";
+import AllPostsPage from "./pages/AllPostsPage";
+import CommentsPageByPostID from "./pages/CommentsPageByPostID";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -22,17 +21,11 @@ let router = createBrowserRouter([
         children: [
             {index: true, element: <HomePage/>},
             {path: 'users', element: <UsersPage/>},
-            {path: 'users/:id', element: <UserPage/>},
-            // {path: 'posts', element: <PostsPage/>},
-            // {path: 'posts/:id', element: <PostPage/>},
-            // {path: 'post/:id', element: <PostPage/>},
-            {
-                path: 'posts', element: <PostsPage/>, children: [
-                    {path: ':id', element: <PostPage/>}
-                ]
-            },
+            {path: 'users/:id/posts', element: <UserPage/>},
+            {path: 'users/:id/posts/:userId/comments', element: <CommentsPageByPostID/>},
+            {path: 'posts', element: <AllPostsPage/>},
+            {path: 'posts/:id/comments', element: <CommentsPageByPostID/>},
             {path: 'comments', element: <CommentsPage/>},
-            {path: 'comments/:id', element: <CommentPage/>},
         ]
     }
 ]);

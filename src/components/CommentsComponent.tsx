@@ -6,10 +6,11 @@ interface IProps {
     comments: IComment[]
 }
 const CommentsComponent:FC<IProps> = ({comments}) => {
+
     return (
         <div>
             {
-                comments.map((comment:IComment) => <CommentComponent comment={comment}/>)
+                comments.map((comment:IComment) => <CommentComponent comment={comment} key={comment.id}/>)
             }
         </div>
     );

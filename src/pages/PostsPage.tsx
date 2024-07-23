@@ -1,23 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import PostsComponent from "../components/PostsComponent";
 import {IPost} from "../models/IPost";
-import {getPosts} from "../services/apiServicer";
-
+import {getPostsByUserId} from "../services/apiServicer";
+import PaginationsCopmonent from "../components/PaginationsCopmonent";
+import {useParams} from "react-router-dom";
 
 const PostsPage = () => {
 
+    let {id} = useParams();
     const [posts, setPosts] = useState<IPost[]>([]);
 
     useEffect(() => {
-        getPosts().then((value) => {
-             setPosts(value);
-        });
-
-    }, []);
+        if(id){
+        getPostsByUserId(id).then((value) => {setPosts(value) });
+        }
+    }, [id]);
 
     return (
         <div>
-            <h3>Posts All</h3>
+            <h1>Posts All</h1>
             <PostsComponent posts={posts}/>
         </div>
     );

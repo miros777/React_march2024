@@ -16,7 +16,7 @@ const CommentsPage = () => {
 
     return (
         <div>
-            Comments
+            <h1>Comments All</h1>
             <CommentsComponent comments={comments}/>
         </div>
     );

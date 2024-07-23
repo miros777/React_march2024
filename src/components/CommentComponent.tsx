@@ -1,5 +1,4 @@
 import React, {FC} from 'react';
-import {Link} from "react-router-dom";
 import {IComment} from "../models/IComment";
 
 interface IProps {
@@ -8,10 +7,9 @@ interface IProps {
 const CommentComponent:FC<IProps> = ({comment}) => {
     return (
         <div>
-            <div key={comment.id}>
-                <b>ID: {comment.id}</b>
-                <h3><Link to={comment.id.toString()}>{comment.body}</Link></h3>
-                <div>{comment.postId}</div>
+            <div key={comment.id} >
+                <b>Comment ID: {comment.id}  PostId: {comment.postId}</b>
+                <h3>{comment.body}</h3>
                 <hr/>
             </div>
         </div>

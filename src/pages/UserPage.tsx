@@ -1,22 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import {Location, useLocation, useParams} from "react-router-dom";
-import {getUserById} from "../services/apiServicer";
+import {useParams} from "react-router-dom";
+import {getPostsByUserId} from "../services/apiServicer";
 import {IPost} from "../models/IPost";
-import {useAppLocation} from "../hooks/useAppLocation";
-import UserComponent from "../components/UserComponent";
-import {IUser} from "../models/IUser";
+import PostsComponent from "../components/PostsComponent";
 
 const UserPage = () => {
-    const {id} = useParams();
+    let {id} = useParams();
 
-    // console.log(post);
-    // console.log(typeof id);
-    // console.log(userData);
+    const [posts, setPosts] = useState<IPost[]>([])
+    useEffect(() => {
+        if(id){
+            getPostsByUserId(id.toString()).then(value => setPosts(value));
+        }
+    }, [id]);
 
     return (
         <div>
-            User Page {id}
-            {/*<UserComponent user={userData}/>*/}
+            User ID:{id}
+            <PostsComponent posts={posts}/>
         </div>
     );
 };

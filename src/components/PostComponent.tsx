@@ -1,18 +1,23 @@
 import React, {FC} from 'react';
-import {Link} from "react-router-dom";
 import {IPost} from "../models/IPost";
+import {useNavigate} from "react-router-dom";
 
 interface IProps {
     post: IPost
 }
 const PostComponent:FC<IProps> = ({post}) => {
-    // console.log(post.id);
+
+    let navigate = useNavigate();
+
     return (
         <div>
            <div>
-                <b>ID: {post.id}</b>
-                <h3><Link to={post.id.toString()}>{post.title}</Link></h3>
-                <div>{post.body}</div>
+                <h3>POST ID: {post.id} USER ID: {post.userId}</h3>
+                <h3>Title: {post.title}</h3>
+                <div>Body: {post.body}</div>
+               <button onClick={() => {
+                   navigate(post.id.toString() + '/comments')
+               }}>Show comments</button>
                 <hr/>
             </div>
         </div>

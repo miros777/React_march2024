@@ -1,17 +1,20 @@
 import React, {FC} from 'react';
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {IUser} from "../models/IUser";
 
 interface IProps {
     user: IUser
 }
 const UserComponent:FC<IProps> = ({user}) => {
+    let navigate = useNavigate();
     return (
         <div key={user.id}>
             <b>ID: {user.id}</b>
-            <h3><Link to={user.id.toString()}>Name: {user.name}</Link></h3>
-            <b>UserName: {user.username}</b>
-            <button><Link to={user.id.toString()}>Show Post</Link></button>
+            <h3>Name: {user.name}</h3>
+            <h4>UserName: {user.username}</h4>
+            <button onClick={() => {
+                navigate(user.id.toString() + '/posts')
+            }}>Show Post</button>
             <hr/>
         </div>
     );
