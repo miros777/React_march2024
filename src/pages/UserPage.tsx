@@ -4,6 +4,7 @@ import {getPostsByUserId} from "../services/apiServicer";
 import {IPost} from "../models/IPost";
 import PostsComponent from "../components/PostsComponent";
 
+
 const UserPage = () => {
     let {id} = useParams();
 
