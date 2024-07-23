@@ -11,6 +11,7 @@ const UserComponent:FC<IProps> = ({user}) => {
             <b>ID: {user.id}</b>
             <h3><Link to={user.id.toString()}>Name: {user.name}</Link></h3>
             <b>UserName: {user.username}</b>
+            <button><Link to={user.id.toString()}>Show Post</Link></button>
             <hr/>
         </div>
     );

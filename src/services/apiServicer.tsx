@@ -15,6 +15,14 @@ const getPosts = async ():Promise<IPost[]> => {
    return await axiosInstance.get<IPost[]>('/posts').then((response:AxiosResponse<IPost[]>) => response.data);
 }
 
+const getOnePostById = async (id: string):Promise<IPost> => {
+   return await axiosInstance.get<IPost>('/posts/' + id).then((response:AxiosResponse<IPost>) => response.data);
+}
+
+const getUserById = async (id: string | undefined):Promise<IUser> => {
+    return await axiosInstance.get<IUser>('/users/' + id).then((response:AxiosResponse<IUser>) => response.data);
+}
+
 const getUsers = async ():Promise<IUser[]> => {
    return await axiosInstance.get<IUser[]>('/users/').then((response:AxiosResponse<IUser[]>) => response.data);
 }
@@ -26,5 +34,7 @@ const getComments = async ():Promise<IComment[]> => {
 export {
     getPosts,
     getUsers,
-    getComments
+    getComments,
+    getOnePostById,
+    getUserById
 };

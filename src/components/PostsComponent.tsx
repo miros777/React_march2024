@@ -9,7 +9,7 @@ const PostsComponent: FC<IProps> = ({posts}) => {
     return (
         <div>
             {
-                posts.map((post: IPost) => <PostComponent post={post}/>)
+                posts.map((post: IPost) => <PostComponent post={post} key={post.id}/>)
             }
         </div>
     );

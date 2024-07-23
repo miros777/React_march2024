@@ -17,7 +17,7 @@ const PostsPage = () => {
 
     return (
         <div>
-            Posts
+            <h3>Posts All</h3>
             <PostsComponent posts={posts}/>
         </div>
     );
