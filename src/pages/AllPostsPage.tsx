@@ -8,15 +8,17 @@ const AllPostsPage = () => {
     const [posts, setPosts] = useState<IPost[]>([]);
 
     useEffect(() => {
-            getAllPosts().then((value) => {setPosts(value) });
+        getAllPosts().then((value) => {
+            setPosts(value)
+        });
     }, []);
 
     return (
         <div>
             <h1>Posts All</h1>
-                <PostsComponent posts={posts}/>
+            <PostsComponent posts={posts}/>
         </div>
-);
+    );
 };
 
 export default AllPostsPage;

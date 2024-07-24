@@ -6,7 +6,6 @@ import { useSearchParams} from "react-router-dom";
 interface IProps {
     users: IUser[]
 }
-
 const UsersComponent: FC<IProps> = ({users}) => {
 
     let [searchParams, setSearchParams] = useSearchParams({'page': '0'});
@@ -14,7 +13,7 @@ const UsersComponent: FC<IProps> = ({users}) => {
     return (
         <div>
             {
-                users.map((user: IUser) => <UserComponent user={user}/>)
+                users.map((user: IUser) => <UserComponent user={user} key={user.id}/>)
             }
             <div>
                 <button onClick={() => {
