@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import {BrowserRouter, createBrowserRouter} from "react-router-dom";
+import {BrowserRouter, createBrowserRouter, RouterProvider} from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import AuthPage from "./pages/AuthPage";
 import RegistrationPage from "./pages/RegistrationPage";
@@ -30,6 +30,6 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
-<BrowserRouter router={router}/>
+    <RouterProvider router={router}/>
 );
 
