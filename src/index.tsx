@@ -5,6 +5,7 @@ import {BrowserRouter, createBrowserRouter, RouterProvider} from "react-router-d
 import MainLayout from "./layouts/MainLayout";
 import AuthPage from "./pages/AuthPage";
 import RegistrationPage from "./pages/RegistrationPage";
+import CarPages from "./pages/CarPages";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,6 +21,9 @@ const router = createBrowserRouter([
                 },
                 {
                     path: 'registration', element: <RegistrationPage/>
+                },
+                {
+                    path: 'cars', element: <CarPages/>
                 },
                 {
                     // path: 'cars', element: <RegistrationPage/>
