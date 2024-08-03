@@ -4,7 +4,6 @@ import {UserResponse} from "../models/UserResponse";
 import {TokenObtainPairModel} from "../models/TokenObtainPairModel";
 import {TokenRefresh} from "../models/TokenRefresh";
 import {retriveLocalStorageData} from "../helpers/healpers";
-import {ICarWithAuthModel} from "../models/ICarWithAuthModel";
 import {CarPaginatedModel} from "../models/CarPaginatedModel";
 
 const axiosInstans = axios.create({
@@ -39,8 +38,8 @@ const authUser  = {
 }
 
 const carsUser = {
-    getCars: async():Promise<CarPaginatedModel> => {
-        let res = await axiosInstans.get<CarPaginatedModel>('/cars');
+    getCars: async(page:string = '1'):Promise<CarPaginatedModel> => {
+        let res = await axiosInstans.get<CarPaginatedModel>('/cars', {params: {page: page}});
         return res.data;
     }
 }
