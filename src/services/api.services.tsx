@@ -5,6 +5,7 @@ import {TokenObtainPairModel} from "../models/TokenObtainPairModel";
 import {TokenRefresh} from "../models/TokenRefresh";
 import {retriveLocalStorageData} from "../helpers/healpers";
 import {ICarWithAuthModel} from "../models/ICarWithAuthModel";
+import {CarPaginatedModel} from "../models/CarPaginatedModel";
 
 const axiosInstans = axios.create({
     baseURL: 'http://owu.linkpc.net/carsAPI/v2'
@@ -19,30 +20,28 @@ axiosInstans.interceptors.request.use(requestObject => {
 const userService  = {
     saveUser: async (data:IUserModel):Promise<boolean> => {
         let res = await axiosInstans.post<UserResponse>('/users', data);
-        console.log(res);
-
+        // console.log(res);
+        // console.log(res.status === 201);
         return !!res.data.id || false
     }
-
 }
 
 const authUser  = {
     authenticate: async (data:TokenObtainPairModel):Promise<void> => {
         let res = await axiosInstans.post<TokenRefresh>('/auth', data);
-        console.log(res);
-        console.log(res.data.access);
-        console.log(res.data.refresh);
+        localStorage.setItem('tokenPair', JSON.stringify(res.data));
+    },
+    refresh: async ():Promise<void> => {
+        const refreshToken = retriveLocalStorageData<TokenRefresh>('TokenPair').refresh;
+        let res = await axiosInstans.post<UserResponse>('/auth/refresh', {refresh: refreshToken});
+        localStorage.setItem('tokenPair', JSON.stringify(res) )
     }
-
 }
 
 const carsUser = {
-    getCars: async():Promise<any> => {
-        let res = await axiosInstans.get<UserResponse>('/cars');
-        let data = res.data;
-        console.log(data);
-        return data;
-
+    getCars: async():Promise<CarPaginatedModel> => {
+        let res = await axiosInstans.get<CarPaginatedModel>('/cars');
+        return res.data;
     }
 }
 
@@ -50,5 +49,4 @@ export {
     userService,
     authUser,
     carsUser
-
 }
