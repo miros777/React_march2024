@@ -1,8 +1,8 @@
 import React from 'react';
-import {useAppContext} from "../App";
+import {useStore} from "../App";
 
 const IncrementComponent = () => {
-    let counter = useAppContext();
+    let counter = useStore();
 
     return (
         <div>
