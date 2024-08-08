@@ -1,0 +1,7 @@
+.noActive{
+    pointer-events: none;
+    text-decoration: none;
+}
+.borderPost{
+    border: 1px solid #61dafb;
+}
