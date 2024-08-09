@@ -5,6 +5,6 @@ type storeType = {
     post: IPost[]
 }
 export const useStorePosts = create<storeType>((set)=> ({
-    post: set((state) => {post: state.post}
+    post: []
 }));
 
