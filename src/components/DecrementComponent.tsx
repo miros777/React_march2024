@@ -1,8 +1,8 @@
 import React from 'react';
-import {useStore} from "../App";
+import {useStoreCounter} from "../store/useStoreCounter";
 
 const DecrementComponent = () => {
-    let counter = useStore();
+    let counter = useStoreCounter();
 
     return (
         <div>

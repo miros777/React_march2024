@@ -1,8 +1,8 @@
 import React from 'react';
-import {useStore} from "../App";
+import {useStoreCounter} from "../store/useStoreCounter";
 
 const MainComponent = () => {
-    let counter = useStore();
+    let counter = useStoreCounter();
 
     return (
         <div>
